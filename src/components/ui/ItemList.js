@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom"
 import { dummyData } from "../../util/dummyData";
 
 const CommonCard = ({ by, title }) => {
@@ -21,7 +22,7 @@ const CommonCard = ({ by, title }) => {
             </div>
             <div className="hk-card__info__right__comment">
               <i></i>
-              <span>123</span>
+              <span><Link to="/comments">123</Link></span>
             </div>
           </div>
         </div>

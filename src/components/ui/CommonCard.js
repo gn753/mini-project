@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 export const HkCardTop = () => {
   return (
     <div className="hk-card__top">
@@ -104,7 +105,7 @@ const CommonCard = () => {
             </div>
             <div className="hk-card__info__right__comment">
               <i></i>
-              <span>123</span>
+              <span><Link to="/comments">123</Link></span>
             </div>
           </div>
         </div>
