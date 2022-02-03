@@ -1,0 +1,15 @@
+.HkComments {
+  .hk-comment-section:nth-child(1) {
+    .icon-comment__replay {
+      position: absolute;
+      top: 24px;
+      right: 20px;
+      width: 19px;
+      height: 19px;
+      background-image: url("./../images/icon-comments-replay.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
+}

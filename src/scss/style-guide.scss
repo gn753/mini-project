@@ -1,0 +1,283 @@
+@import "./../variables.scss";
+
+.style-guide {
+  padding-top: 20px;
+}
+
+.hk-card__inner {
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+.hk-card__top {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  background-color: #f5f5f5;
+  h1 {
+    font-size: $h1-font-size;
+    font-weight: bold;
+    line-height: 30px;
+  }
+  .hk-card__top__site {
+    font-weight: 300;
+    color: #ff7118;
+  }
+  // 클릭 코멘트
+  .hk-card__top.click {
+    padding-top: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+  }
+}
+.hk-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  span {
+    font-size: $font-size-md;
+    line-height: 18.41px;
+  }
+  .hk-card__info__left {
+    & span:nth-child(1) {
+      text-decoration: underline;
+      color: #555555;
+    }
+    & span:nth-child(2) {
+      color: #a0a0a0;
+    }
+  }
+  .hk-card__info__right {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .hk-card__info__right__point {
+    display: flex;
+    margin-right: 10px;
+    i {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background-image: url("../images/icon-point.svg");
+      background-size: cover;
+    }
+  }
+  .hk-card__info__right__comment {
+    display: flex;
+    i {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background-image: url("../images/icon-comment.svg");
+      background-size: cover;
+    }
+  }
+}
+
+//Card Show 컴포넌트
+.hk-card.show {
+  border: 1px solid #000;
+  .hk-card__top {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    background-color: #f5f5f5;
+  }
+  // 일정 point가 찼을대
+}
+
+// comment-section
+
+.hk-comment-section {
+  position: relative;
+  // margin-top: 81px;
+  .hk-comment {
+    padding: 10px 20px;
+  }
+  .hk-comment__info {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #bfbfbf;
+  }
+  .hk-comment p {
+    color: #555555;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .hk-reply {
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #555555;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+// Ask-opencard
+.hk-ask-opencard {
+  padding-bottom: 30px;
+  .hk-ask-main {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .hk-ask-main__text {
+    font-size: 16px;
+    line-height: 19px;
+    color: #555555;
+  }
+}
+
+//style 가이드 담기위한 임시크기
+.style-guide {
+  margin-left: 300px;
+  margin-right: 600px;
+  .style-guide__title {
+    font-size: 50px;
+    padding-bottom: 40px;
+  }
+  .CommonCard.sample {
+    padding-bottom: 40px;
+  }
+  .HkCardTop.sample {
+    width: 360px;
+    padding-bottom: 40px;
+  }
+  .Show.sample {
+    width: 173px;
+    padding-bottom: 40px;
+  }
+
+  .Ask-opencard-comments.sample {
+    width: 356px;
+    padding-bottom: 40px;
+  }
+  .Ask-opencard-info.sample {
+    width: 356px;
+    padding-bottom: 40px;
+  }
+}
+
+// show
+.HkShow {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-top: 40px;
+  padding: 0 15px;
+  & > div {
+    width: 50%;
+    box-sizing: border-box;
+  }
+  & > div:nth-child(2n-1) {
+    padding-right: 10px;
+  }
+  & > div:nth-child(2n) {
+    padding-left: 10px;
+  }
+
+  .hk-card__top h1 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .hk-card__top__site {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ff7118;
+  }
+  .hk-card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+  .hk-card__bottom span {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.5px;
+    line-height: 12px;
+  }
+  .hk-card__info__left {
+    & span:nth-child(1) {
+      text-decoration: underline;
+      color: #555555;
+    }
+    & span:nth-child(2) {
+      color: #a0a0a0;
+    }
+  }
+  .hk-card__info__right {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .hk-card__info__right span {
+    font-size: 9px;
+    line-height: 9px;
+  }
+  .hk-card__info__right__point {
+    display: block;
+    margin-right: 10px;
+    i {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background-image: url("../images/icon-point.svg");
+      background-size: cover;
+      margin-left: 1px;
+    }
+  }
+  .hk-card__info__right__comment {
+    display: block;
+    i {
+      display: block;
+      width: 15px;
+      height: 15px;
+      background-image: url("../images/icon-comment.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-left: 1px;
+    }
+  }
+
+  // active
+  .hk-card__top.hk-card__top--active {
+    background-color: #ff7118;
+    h1 {
+      color: #fff;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 23px;
+    }
+    .hk-card__top__site {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 14px;
+      color: #fff;
+    }
+  }
+}
