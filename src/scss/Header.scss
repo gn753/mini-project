@@ -27,11 +27,17 @@
   }
   .hk-plus {
     display: block;
-    width: 24px;
+    width: 23px;
     height: 23px;
     background-image: url("../images/icon-menu.svg");
     background-repeat: no-repeat;
+    background-size: cover;
     cursor: pointer;
+  }
+  .hk-plus.hk-plus--active {
+    width: 17px;
+    height: 17px;
+    background-image: url("../images/icon-plus-active.svg");
   }
 }
 .ToggleNav {

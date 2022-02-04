@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-export const HkCardTop = () => {
+export const CardTop = () => {
   return (
     <div className="hk-card__top">
       <span className="hk-card__top__site">39digits.com</span>
@@ -9,7 +9,7 @@ export const HkCardTop = () => {
   );
 };
 
-export const HkCardBottom = () => {
+export const CardBottom = () => {
   return (
     <div className="hk-card__bottom">
       <div className="hk-card__info__left">
@@ -30,7 +30,7 @@ export const HkCardBottom = () => {
   );
 };
 
-export const HkCommentSection = () => {
+export const CommentSection = () => {
   return (
     <section className="hk-comment-section">
       <div className="hk-comment-item">
@@ -59,7 +59,7 @@ export const HkCommentSection = () => {
   );
 };
 
-export const HkAskOpenCard = () => {
+export const AskOpenCard = () => {
   return (
     <section className="hk-ask-opencard">
       <div className="hk-card__top">

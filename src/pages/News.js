@@ -1,6 +1,5 @@
-import "./../scss/HkNews.scss";
-import Header from "./../components/common/Header";
-import { useState, useEffect, useCallback } from "react";
+import "./../scss/News.scss";
+import { useState, useEffect } from "react";
 import ItemList from "../components/ui/ItemList";
 
 const TabNav = ({ tabChange }) => {
@@ -41,7 +40,7 @@ const TabNav = ({ tabChange }) => {
   );
 };
 
-const HkNews = ({ topIdList }) => {
+const News = ({ topIdList }) => {
   const [isTabNav, setIsTabNav] = useState(); //top/new 탭 state
   return (
     <div>
@@ -51,4 +50,4 @@ const HkNews = ({ topIdList }) => {
   );
 };
 
-export default HkNews;
+export default News;

@@ -4,9 +4,12 @@ import "./scss/Header.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StyleGuide from "./components/common/StyleGuide";
 import Header from "./components/common/Header";
-import HkNews from "./pages/HkNews";
-import HkShow from "./pages/HkShow";
-import HkComment from "./pages/HkComment";
+import FooterBar from "./components/common/FooterBar";
+import News from "./pages/News";
+import Show from "./pages/Show";
+import Comment from "./pages/Comment";
+import Ask from "./pages/Ask";
+import Jobs from "./pages/Jobs";
 
 function App() {
   const [data, setData] = useState();
@@ -34,11 +37,14 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<HkNews topIdList={data}></HkNews>}></Route>
-          <Route path="/hkshow" element={<HkShow />}></Route>
-          <Route path="/comments" element={<HkComment />}></Route>
+          <Route path="/" element={<News topIdList={data}></News>}></Route>
+          <Route path="/hkshow" element={<Show />}></Route>
+          <Route path="/comments" element={<Comment />}></Route>
           <Route path="/styleguide" element={<StyleGuide></StyleGuide>}></Route>
+          <Route path="/ask" element={<Ask></Ask>}></Route>
+          <Route path="/jobs" element={<Jobs></Jobs>}></Route>
         </Routes>
+        <FooterBar />
       </div>
     </BrowserRouter>
   );

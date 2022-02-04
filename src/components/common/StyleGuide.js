@@ -1,8 +1,4 @@
-import {
-  HkAskOpenCard,
-  HkCommentSection,
-  HkCardTop,
-} from "../ui/CommonCard";
+import { AskOpenCard, CommentSection, CardTop } from "../ui/CommonCard";
 import CommonCard from "../ui/CommonCard";
 import "./../../scss/style-guide.scss";
 
@@ -12,7 +8,7 @@ const StyleGuide = () => {
       <h1 className="style-guide__title">Style-Guide</h1>
       <div className="HkCardTop sample">
         <h2>Card Top</h2>
-        <HkCardTop></HkCardTop>
+        <CardTop></CardTop>
       </div>
       <div className="CommonCard sample">
         <h2>CommonCard</h2>
@@ -23,11 +19,11 @@ const StyleGuide = () => {
       </div>
       <div className="Ask-opencard-comments sample">
         <h2>Ask-opencard-comments</h2>
-        <HkCommentSection />
+        <CommentSection />
       </div>
       <div className="Ask-opencard-info sample">
         <h2>Ask-opencard-info</h2>
-        <HkAskOpenCard />
+        <AskOpenCard />
       </div>
     </div>
   );
