@@ -17,12 +17,6 @@ const Jobs = () => {
   return (
     <div className="hk-jobs">
       <JobCardTop />
-      <JobCardTop />
-      <JobCardTop />
-      <JobCardTop />
-      <JobCardTop />
-      <JobCardTop />
-      <JobCardTop />
     </div>
   );
 };

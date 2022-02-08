@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap");
 
 html,
 body,
@@ -104,7 +104,8 @@ section {
 }
 body {
   line-height: 1;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+  padding-top: 70px;
 }
 ol,
 ul {

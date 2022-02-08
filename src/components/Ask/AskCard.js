@@ -1,27 +1,32 @@
 import "../../scss/style-guide.scss";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate,useParams} from "react-router-dom";
 import { getStory } from "../../util/api";
 
 const AskCard = ({ storyId }) => {
   const [story, setStory] = useState({});
-  const { title, kids, id, text, by, time, score, descendants } = story;
-  const [test, setTest] = useState(true);
+  const { title, kids, id, text, by, time, score, descendants, url } = story;
+  const navigate = useNavigate();
+
   useEffect(() => {
     getStory(storyId).then((data) => {
-      if (data) {
+      if (data && data.title) {
         setStory(data);
         console.log(data);
       }
     });
   }, []);
+
   // console.log(title.includes("Ask"));
-  return AskCard ? (
+  return AskCard && title ? (
     <div className="hk-card">
       <div className="hk-card__inner">
-        <div className="hk-card__top">
-          <div className="hk-card__top__tag tag--ask">ask</div>
-          {/* <div className="hk-card__top__tag tag--tell">tell</div> */}
+        <div className="hk-card__top" onClick={() => navigate(`/item/${id}`)}>
+          {title.slice(0, 3) === "Ask" ? (
+            <div className="hk-card__top__tag tag--ask">ask</div>
+          ) : (
+            <div className="hk-card__top__tag tag--tell">tell</div>
+          )}
           <h1>{title}</h1>
           <article className="hk-card__top__article">{text}</article>
         </div>
