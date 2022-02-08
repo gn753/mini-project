@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../scss/Header.scss";
 
+const ToggleBtn = () => {
+  return (
+    <div className="Toggle-btn">
+      <div className="Toggle-btn__bar"><div className="Toggle-gage"></div></div>
+    </div>
+  );
+};
+
 const ToggleNav = ({ pageName, pageTitle }) => {
   const [isActive, setIsActive] = useState(true);
   return (
@@ -25,7 +33,7 @@ const ToggleNav = ({ pageName, pageTitle }) => {
               : "ToggleNav__list__item"
           }
         >
-          <Link to="/Hkshow" onClick={(e) => pageName(e.target.innerHTML)}>
+          <Link to="/show" onClick={(e) => pageName(e.target.innerHTML)}>
             show
           </Link>
         </li>
@@ -45,6 +53,7 @@ const ToggleNav = ({ pageName, pageTitle }) => {
           </Link>
         </li>
       </ul>
+      <ToggleBtn />
     </div>
   );
 };

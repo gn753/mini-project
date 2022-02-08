@@ -1,100 +1,22 @@
-// import CommonCard from "../components/ui/CommonCard";
+import { useEffect, useState } from "react";
+import ShowCard from "../components/Show/ShowCard";
+import { getStories, showStoriesUrl } from "../util/api";
+import FooterBar from "../components/common/FooterBar";
 
-const CommonCard = () => {
-  return (
-    <div className="hk-card">
-      <div className="hk-card__inner">
-        <div className="hk-card__top">
-          <span className="hk-card__top__site">39digits.com</span>
-          <h1>Migrate G Suite accou</h1>
-        </div>
-        <div className="hk-card__bottom">
-          <div className="hk-card__info__left">
-            <span>lando2319 </span>
-            <span>| 1 month ago</span>
-          </div>
-          <div className="hk-card__info__right">
-            <div className="hk-card__info__right__point">
-              <i></i>
-              <span>123</span>
-            </div>
-            <div className="hk-card__info__right__comment">
-              <i></i>
-              <span>123</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-const CommonCard2 = () => {
-  return (
-    <div className="hk-card">
-      <div className="hk-card__inner">
-        <div className="hk-card__top">
-          <span className="hk-card__top__site">39digits.com</span>
-          <h1>
-            Migrate G Suite account to a Personal Google Account (2017)23232323
-          </h1>
-        </div>
-        <div className="hk-card__bottom">
-          <div className="hk-card__info__left">
-            <span>lando2319 </span>
-            <span>| 1 month ago</span>
-          </div>
-          <div className="hk-card__info__right">
-            <div className="hk-card__info__right__point">
-              <i></i>
-              <span>123</span>
-            </div>
-            <div className="hk-card__info__right__comment">
-              <i></i>
-              <span>123</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-const CommonCard3 = () => {
-  return (
-    <div className="hk-card">
-      <div className="hk-card__inner">
-        <div className="hk-card__top">
-          <span className="hk-card__top__site">39digits.com</span>
-          <h1>
-            Migrate G Suite account to a Personal Google Accoun323232323233t
-            (2017)23232323
-          </h1>
-        </div>
-        <div className="hk-card__bottom">
-          <div className="hk-card__info__left">
-            <span>lando2319 </span>
-            <span>| 1 month ago</span>
-          </div>
-          <div className="hk-card__info__right">
-            <div className="hk-card__info__right__point">
-              <i></i>
-              <span>123</span>
-            </div>
-            <div className="hk-card__info__right__comment">
-              <i></i>
-              <span>123</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 const Show = () => {
+  const [storyIds, setStoryIds] = useState([]); //원본
+  const [maxItem, setMaxItem] = useState(10);
+  useEffect(() => {
+    getStories(showStoriesUrl).then((ids) => setStoryIds(ids));
+  }, [storyIds]);
   return (
-    <div className="HkShow">
-      <CommonCard />
-      <CommonCard2 />
-      <CommonCard3 />
+    <div className="HkShow " id="columns">
+      <div className="hk-show__list">
+        {storyIds.slice(0, maxItem).map((storyId) => (
+          <ShowCard key={storyId} storyId={storyId} />
+        ))}
+      </div>
+      <FooterBar maxItemNumber={setMaxItem} maxItem={maxItem} />
     </div>
   );
 };

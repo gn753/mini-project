@@ -6,6 +6,7 @@
 
 .hk-card__inner {
   box-sizing: border-box;
+  padding-bottom: 20px; // 추후 삭제
 }
 .hk-card__top {
   padding-top: 15px;
@@ -177,34 +178,28 @@
 }
 
 // show
+
 .HkShow {
-  display: flex;
-  flex-wrap: wrap;
+  position: relative;
   box-sizing: border-box;
   margin-top: 40px;
   padding: 0 15px;
-  & > div {
-    width: 50%;
-    box-sizing: border-box;
+  .hk-show__list {
+    column-width: 130px;
+    column-gap: 15px;
+    margin-bottom: 60px;
   }
-  & > div:nth-child(2n-1) {
-    padding-right: 10px;
+  .hk-card {
+    display: inline-block;
+    margin: 0;
+    margin-bottom: 15px;
   }
-  & > div:nth-child(2n) {
-    padding-left: 10px;
-  }
-
   .hk-card__top h1 {
     font-size: 20px;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 23px;
-    // display: -webkit-box;
-    // -webkit-line-clamp: 4;
-    // -webkit-box-orient: vertical;
-    // text-overflow: ellipsis;
-    // overflow: hidden;
   }
   .hk-card__top__site {
     font-weight: 300;
@@ -249,6 +244,7 @@
   .hk-card__info__right__point {
     display: block;
     margin-right: 10px;
+    text-align: center;
     i {
       display: block;
       width: 15px;
@@ -260,6 +256,7 @@
   }
   .hk-card__info__right__comment {
     display: block;
+    text-align: center;
     i {
       display: block;
       width: 15px;
@@ -272,19 +269,18 @@
   }
 
   // active
-  .hk-card__top.hk-card__top--active {
+  .hk-card__top.card--active {
     background-color: #ff7118;
-    h1 {
-      color: #fff;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: bold;
-      line-height: 23px;
-    }
     .hk-card__top__site {
+      display: block;
+      color: #fff;
+      margin-bottom: 3px;
+      font-family: "Roboto", sans-serif;
       font-weight: 300;
       font-size: 12px;
       line-height: 14px;
+    }
+    h1 {
       color: #fff;
     }
   }
