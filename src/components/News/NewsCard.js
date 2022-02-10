@@ -9,7 +9,7 @@ const NewsCard = ({ storyId }) => {
     getStory(storyId).then((data) => {
       if (data && data.url) {
         setStory(data);
-        console.log(data);
+        // console.log(data);
       }
     });
   }, []);

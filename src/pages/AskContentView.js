@@ -1,52 +1,54 @@
-import { useState, useEffect } from "react";
-import { getStories, askStoriesUrl, getStory } from "../util/api";
+import { useState, useEffect, useContext } from "react";
+import { StorisContext } from "../App";
+import { getStory } from "../util/api";
 import { useParams, useNavigate } from "react-router-dom";
-const AskContentView = () => {
-  const [storyIds, setStoryIds] = useState([]);
-  const { id } = useParams();
-  const [dataId, setDataId] = useState();
-  const navigate = useNavigate();
-  const [story, setStory] = useState({});
-  useEffect(() => {
-    getStories(askStoriesUrl).then((ids) => setStoryIds(ids));
-  }, []);
-  useEffect(() => {
-    if (storyIds.length >= 1) {
-      const targetStoryId = storyIds.find(
-        (it) => parseInt(it) === parseInt(id)
-      );
 
+import AskOpenCard from "../components/Ask/AskOpenCard";
+import Comments from "../components/common/Comments";
+const AskContentView = () => {
+  const StorisIds = useContext(StorisContext);
+  const { urlId } = useParams();
+  const [dataId, setDataId] = useState();
+  const [story, setStory] = useState({});
+  const navigate = useNavigate();
+  const { kids, title } = story;
+  console.log(story);
+  useEffect(() => {
+    if (StorisIds.length >= 1) {
+      const targetStoryId = StorisIds.find(
+        (it) => parseInt(it) === parseInt(urlId)
+      );
       if (targetStoryId) {
         setDataId(targetStoryId);
       } else {
-        alert("없는 일기입니다.");
-        navigate("/", { replace: true });
+        alert("없는 글입니다.");
+        navigate("/ask", { replace: true });
       }
     }
-  }, [id, storyIds]);
-  useEffect(() => {}, []);
+  }, [dataId]);
+  useEffect(() => {
+    getStory(dataId).then((data) => {
+      if (data && data.id) {
+        setStory(data);
+        // console.log(data, "아이템 데이터");
+      }
+    });
+    console.log(typeof text, "text");
+  }, [dataId]);
+
   return (
-    <section className="hk-ask-opencard">
-      <div className="hk-card__top">
-        <span className="hk-card__top__site">39digits.com</span>
-        <h1>Requiem for Our “Dash Board Lights”</h1>
-      </div>
-      <div className="hk-ask-main">
-        <p className="hk-ask-main__text">
-          I'm not talking about stuff like launching a company that could take
-          years to take off. I tried bounty hunting for a while, but it seems
-          that a lot of companies don't care that much or are dishonest when it
-          comes to paying you, I found weaknesses that could be used to siphon
-          tens of thousands of dollars and didn't get a single $ when reporting
-          them through their bounty hunting program(even though they fixed it a
-          few months after my multiple reports). Do you have any ideas of ways
-          to make money with code besides getting a job? I'm okay with gray area
-          stuff, as long as it's not straight up hacking. Btw I'm pretty good at
-          automation/making bots if you have any ideas in that area. Thanks guys
-          :)
-        </p>
-      </div>
-    </section>
+    <div>
+      {<AskOpenCard /> && story.title ? (
+        <article className="hk-ask-opencard">
+          <AskOpenCard story={story} />
+        </article>
+      ) : null}
+      {kids && <Comments />
+        ? kids
+            .slice(0, 10)
+            .map((kid, index) => <Comments key={index} commentId={kid} />)
+        : null}
+    </div>
   );
 };
 

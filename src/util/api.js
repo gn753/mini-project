@@ -40,4 +40,17 @@ export const getComment = async (commentId) => {
   }
 };
 
+export const getReply = async (replyId) => {
+  try {
+    const res = await axios
+      .get(`${itemUrl + replyId}.json`)
+      .then(({ data }) => data);
+    return res;
+  } catch (err) {
+    console.error(err);
+  }
+};
+// const getReplies = (commendId) => {
+//   return comment.filter(commendId => commendId== kids.parentId)
+// }
 //NewStoris

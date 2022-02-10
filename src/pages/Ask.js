@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getStories, askStoriesUrl } from "../util/api";
-import { useParams, useNavigate } from "react-router-dom";
 import AskCard from "../components/Ask/AskCard";
 import FooterBar from "../components/common/FooterBar";
 
@@ -11,8 +10,6 @@ const Ask = () => {
   useEffect(() => {
     getStories(askStoriesUrl).then((ids) => setStoryIds(ids));
   }, []);
-
-
 
   return (
     <div className="hk-ask">
