@@ -16,7 +16,6 @@ function App() {
   const [data, setData] = useState({});
   useEffect(() => {
     getStories(askStoriesUrl).then((ids) => setData(ids));
-    console.log(data, "data");
   }, []);
   return (
     <StorisContext.Provider value={data}>

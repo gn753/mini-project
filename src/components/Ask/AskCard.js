@@ -1,6 +1,6 @@
 import "../../scss/style-guide.scss";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate,useParams} from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getStory } from "../../util/api";
 
 const AskCard = ({ storyId }) => {
@@ -10,14 +10,11 @@ const AskCard = ({ storyId }) => {
 
   useEffect(() => {
     getStory(storyId).then((data) => {
-      if (data && data.title) {
+      if (data && data?.title) {
         setStory(data);
-        // console.log(data);
       }
     });
   }, []);
-
-  // console.log(title.includes("Ask"));
   return AskCard && title ? (
     <div className="hk-card">
       <div className="hk-card__inner">

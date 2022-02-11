@@ -7,9 +7,8 @@ const ShowCard = ({ storyId }) => {
   const { title, kids, id, url, by, time, score, descendants } = story;
   useEffect(() => {
     getStory(storyId).then((data) => {
-      if (data && data.url) {
+      if (data && data?.url) {
         setStory(data);
-        console.log(data);
       }
     });
   }, []);

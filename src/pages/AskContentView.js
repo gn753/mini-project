@@ -54,9 +54,8 @@ const AskContentView = () => {
   useEffect(() => {
     //본문글을 뽑는 API
     getStory(postId).then((data) => {
-      if (data && data.id) {
+      if (data && data?.id) {
         setStory(data);
-        console.log(data, "본문 데이터");
       }
     });
   }, [postId]);

@@ -6,30 +6,24 @@ const Comments = ({ commentId }) => {
   const [comment, setComment] = useState({});
   const { text, title, kids, by, id, time } = comment;
 
-  // Feat: 재귀함수를 이용한 대댓글 기능
-  const nestedComments =
-    kids && title
-      ? comment.kids.map((comment) => {
-          return (
-            <Comments
-              key={comment.id}
-              commentId={comment}
-              style={{ padding: "10px 0 10px 10px" }}
-            />
-          );
-        })
-      : null;
+  const nestedComments = (comment.kids || []).map((comment) => {
+    return (
+      <Comments
+        style={{ padding: "10px 0 10px 10px" }}
+        key={comment.id}
+        commentId={comment}
+      />
+    );
+  });
 
   useEffect(() => {
     getComment(commentId).then((data) => {
-      if (data && data.text) {
+      if (data && data?.text) {
         setComment(data);
-        console.log(data, "댓글 데이터");
       }
     });
   }, [commentId]);
 
-  // 댓글 접기
   const handleCommentCollapse = (id) => {
     const updatedComments = comment.kids.map((kid) => {
       if (kid === id) {
@@ -62,7 +56,7 @@ const Comments = ({ commentId }) => {
             dangerouslySetInnerHTML={{ __html: text }}
           ></div>
         </div>
-        {nestedComments}
+        <div>{nestedComments}</div>
       </div>
 
       <i className="icon-comment__replay"></i>
