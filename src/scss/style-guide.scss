@@ -99,13 +99,14 @@
 }
 
 // comment-section
-
+.comment__container {
+  width: calc(100% - 30px);
+  padding: 10px 20px;
+}
 .hk-comment {
   position: relative;
   // margin-top: 81px;
   .hk-comment__inner {
-    width: calc(100% - 30px);
-    padding: 10px 20px;
     word-break: break-all;
   }
   .hk-comment__info {

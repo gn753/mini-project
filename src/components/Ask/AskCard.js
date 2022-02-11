@@ -12,7 +12,7 @@ const AskCard = ({ storyId }) => {
     getStory(storyId).then((data) => {
       if (data && data.title) {
         setStory(data);
-        console.log(data);
+        // console.log(data);
       }
     });
   }, []);
