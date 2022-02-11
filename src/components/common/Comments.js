@@ -8,7 +8,7 @@ const Comments = ({ commentId }) => {
 
   // Feat: 재귀함수를 이용한 대댓글 기능
   const nestedComments =
-    kids.length > 0
+    kids && title
       ? comment.kids.map((comment) => {
           return (
             <Comments
