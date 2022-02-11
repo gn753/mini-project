@@ -7,29 +7,6 @@ import AskOpenCard from "../components/Ask/AskOpenCard";
 import Comments from "../components/common/Comments";
 // import Reply from "../components/common/Reply";
 
-function createTree(list) {
-  var map = {},
-    node,
-    roots = [],
-    i;
-
-  for (i = 0; i < list.length; i += 1) {
-    map[list[i].id] = i; // initialize the map
-    list[i].children = []; // initialize the children
-  }
-
-  for (i = 0; i < list.length; i += 1) {
-    node = list[i];
-    if (node.parentId) {
-      // if you have dangling branches check that map[node.parentId] exists
-      list[map[node.parentId]].children.push(node);
-    } else {
-      roots.push(node);
-    }
-  }
-  return roots;
-}
-
 const AskContentView = () => {
   const StorisIds = useContext(StorisContext);
   const { urlId } = useParams(); //url 주소 매칭
@@ -59,17 +36,6 @@ const AskContentView = () => {
       }
     });
   }, [postId]);
-
-  // useEffect(() => {
-  //   var arr1 = [];
-  //   for (let i = 0; i < kids.length; i++) {
-  //     getComment(postId).then((data) => {
-  //       if (data && data.id) {
-  //         arr1.push(data);
-  //       }
-  //     });
-  //   }
-  // }, []);
 
   return (
     <div>
