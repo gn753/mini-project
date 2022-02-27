@@ -32,7 +32,7 @@ export const getStory = async (storyId) => {
 export const getComment = async (commentId) => {
   try {
     const res = await axios
-      .get(`${itemUrl + commentId}.json`)
+      .get(`${itemUrl + commentId}.json?print=pretty`)
       .then(({ data }) => data);
     return res;
   } catch (err) {

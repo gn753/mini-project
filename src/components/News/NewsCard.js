@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getStory } from "../../util/api";
 
 const NewsCard = ({ storyId }) => {
   const [story, setStory] = useState({});
-  const { title, kids, id, url, by, time, score, descendants } = story;
+  const { title, url, by, time, score, descendants, id } = story;
+  const navigate = useNavigate();
   useEffect(() => {
     getStory(storyId).then((data) => {
       if (data && data?.url) {
@@ -19,10 +20,10 @@ const NewsCard = ({ storyId }) => {
   return NewsCard && url ? (
     <div className="hk-card">
       <div className="hk-card__inner">
-        <div className="hk-card__top">
+        <a className="hk-card__top" href={url} target="_blank">
           <span className="hk-card__top__site">{url.slice(0, 5)}</span>
           <h1>{title}</h1>
-        </div>
+        </a>
         <div className="hk-card__bottom">
           <div className="hk-card__info__left">
             <span>{by}</span>
@@ -35,8 +36,8 @@ const NewsCard = ({ storyId }) => {
             </div>
             <div className="hk-card__info__right__comment">
               <i></i>
-              <span>
-                <Link to="/comments">{descendants}</Link>
+              <span onClick={() => navigate(`/comments/${id}`)}>
+                {descendants}
               </span>
             </div>
           </div>

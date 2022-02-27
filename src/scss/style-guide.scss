@@ -102,10 +102,31 @@
 .comment__container {
   width: calc(100% - 30px);
   padding: 10px 20px;
-}
-.hk-comment {
-  position: relative;
-  // margin-top: 81px;
+  .icon-comment__replay {
+    display: none;
+  }
+  & > .hk-comment {
+    border-bottom: 1px solid #e3e3e3;
+    padding-top: 15px;
+    padding-bottom: 25px;
+  }
+  & > .hk-comment:nth-child(1) {
+    & > .icon-comment__replay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url("../images/icon-comments-replay.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
+  .hk-comment {
+    position: relative;
+  }
   .hk-comment__inner {
     word-break: break-all;
   }
@@ -115,25 +136,14 @@
     line-height: 16px;
     color: #bfbfbf;
     margin-bottom: 10px;
+    font-weight: 400;
   }
   .hk-comment__item p {
     color: #555555;
     font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 16px;
-  }
-  .hk-reply {
-    padding-left: 40px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #555555;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
   }
 }
 
@@ -422,5 +432,13 @@
     letter-spacing: 0em;
     text-align: right;
     color: #a0a0a0;
+  }
+}
+
+.ItemList {
+  .hk-card__top {
+    display: block;
+    color: #000;
+    text-decoration: none;
   }
 }

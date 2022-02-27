@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { StorisContext } from "../App";
-import { getComment, getStory } from "../util/api";
+import { getStory } from "../util/api";
 import { useParams, useNavigate } from "react-router-dom";
 
 import AskOpenCard from "../components/Ask/AskOpenCard";
@@ -13,7 +13,7 @@ const AskContentView = () => {
   const [postId, setPostId] = useState(); // 본문글 Id
   const [story, setStory] = useState({}); // 본문 내용데이터
   const navigate = useNavigate();
-  const { kids, title } = story;
+  const { kids } = story;
 
   useEffect(() => {
     if (StorisIds.length >= 1) {
@@ -27,7 +27,7 @@ const AskContentView = () => {
         navigate("/ask", { replace: true });
       }
     }
-  }, [postId]);
+  }, [StorisIds]);
   useEffect(() => {
     //본문글을 뽑는 API
     getStory(postId).then((data) => {

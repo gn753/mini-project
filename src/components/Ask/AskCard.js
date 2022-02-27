@@ -1,6 +1,6 @@
 import "../../scss/style-guide.scss";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getStory } from "../../util/api";
 
 const AskCard = ({ storyId }) => {
@@ -25,7 +25,10 @@ const AskCard = ({ storyId }) => {
             <div className="hk-card__top__tag tag--tell">tell</div>
           )}
           <h1>{title}</h1>
-          <article className="hk-card__top__article">{text}</article>
+          <article
+            className="hk-card__top__article"
+            dangerouslySetInnerHTML={{ __html: text }}
+          ></article>
         </div>
         <div className="hk-card__bottom">
           <div className="hk-card__info__left">
@@ -39,8 +42,8 @@ const AskCard = ({ storyId }) => {
             </div>
             <div className="hk-card__info__right__comment">
               <i></i>
-              <span>
-                <Link to="/comments">{descendants}</Link>
+              <span onClick={() => navigate(`/comments/${id}`)}>
+                {descendants}
               </span>
             </div>
           </div>
